@@ -12,5 +12,7 @@ Under visual studio:
 In Make file:
 
 
+It also depends on a smppparser:http://smppcxx.sourceforge.net, the sourcecode is added  to xcode/visual studio project, but under linux, you need go to public/smppparser, the run make, it will generate a libsmppparser.a file, you should set its path  the client's and the server's Makefile.
+
 
 Any questions , please contact dotphoenix@qq.com.
