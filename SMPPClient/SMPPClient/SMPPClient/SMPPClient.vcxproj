@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{01013C13-4170-4A9F-8249-468C05C86352}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>SMPPClient</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>F:\development_tools\boost\boost_1_54_0\;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;</IncludePath>
+    <LibraryPath>F:\development_tools\boost\boost_1_54_0\lib32-msvc-10.0;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>F:\development_tools\boost\boost_1_54_0\;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;</IncludePath>
+    <LibraryPath>F:\development_tools\boost\boost_1_54_0\lib32-msvc-10.0;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_WIN32_WINNT=0x0501;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;SMPP_CLIENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\public\configer;..\..\..\public\algorithm_toolkit;..\..\..\public\logger;..\..\..\public\memory_buffer;..\..\..\public\network;..\..\..\public\protocol;..\..\..\public\version;..\..\..\public\smpp_datacoding_convert;..\..\..\public\smppclient;..\..\..\public\smppparser;..\..\..\public\sqlite;..\..\..\public\crash_monitor;..\..\..\public\process;..\..\..\public\avhttp;..\..\..\public\protocol_public;..\..\..\public\client_common;..\..\..\public\mongoose</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_WIN32_WINNT=0x0501;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;SMPP_CLIENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\public\configer;..\..\..\public\algorithm_toolkit;..\..\..\public\logger;..\..\..\public\memory_buffer;..\..\..\public\network;..\..\..\public\protocol;..\..\..\public\version;..\..\..\public\smpp_datacoding_convert;..\..\..\public\smppclient;..\..\..\public\smppparser;..\..\..\public\sqlite;..\..\..\public\crash_monitor;..\..\..\public\process;..\..\..\public\avhttp;..\..\..\public\protocol_public;..\..\..\public\client_common;..\..\..\public\mongoose</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\..\..\public\smppparser\Makefile" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\public\algorithm_toolkit\base64.cpp" />
+    <ClCompile Include="..\..\..\public\algorithm_toolkit\csv_generator.cpp" />
+    <ClCompile Include="..\..\..\public\algorithm_toolkit\md5.cpp" />
+    <ClCompile Include="..\..\..\public\avhttp\avhttp_client_tools.cpp" />
+    <ClCompile Include="..\..\..\public\client_common\cb_client_api.cpp" />
+    <ClCompile Include="..\..\..\public\client_common\clients_manager.cpp" />
+    <ClCompile Include="..\..\..\public\client_common\client_data_source_manager.cpp" />
+    <ClCompile Include="..\..\..\public\client_common\json_parser.cpp" />
+    <ClCompile Include="..\..\..\public\client_common\short_message_db.cpp" />
+    <ClCompile Include="..\..\..\public\configer\configer.cpp" />
+    <ClCompile Include="..\..\..\public\database\db_strings.cpp" />
+    <ClCompile Include="..\..\..\public\database\mysql_client_helper_tester.cpp" />
+    <ClCompile Include="..\..\..\public\database\records_db.cpp" />
+    <ClCompile Include="..\..\..\public\database\smis_db.cpp" />
+    <ClCompile Include="..\..\..\public\logger\logger.cpp" />
+    <ClCompile Include="..\..\..\public\mongoose\mongoose.cpp" />
+    <ClCompile Include="..\..\..\public\protocol\protocol_structure.cpp" />
+    <ClCompile Include="..\..\..\public\protocol_public\cb_protocol_public.cpp" />
+    <ClCompile Include="..\..\..\public\protocol_public\cb_public_functions.cpp" />
+    <ClCompile Include="..\..\..\public\protocol_public\data_encoding_tools.cpp" />
+    <ClCompile Include="..\..\..\public\protocol_public\sync_tcp_client.cpp" />
+    <ClCompile Include="..\..\..\public\smppclient\smppclient.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\alert_notification.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\aux_types.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\bind_receiver.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\bind_receiver_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\bind_transceiver.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\bind_transceiver_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\bind_transmitter.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\bind_transmitter_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\broadcast_sm.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\broadcast_sm_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\buffer.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\cancel_broadcast_sm.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\cancel_broadcast_sm_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\cancel_sm.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\cancel_sm_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\data_sm.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\data_sm_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\deliver_sm.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\deliver_sm_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\enquire_link.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\enquire_link_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\error.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\generic_nack.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\header.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\outbind.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\query_broadcast_sm.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\query_broadcast_sm_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\query_sm.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\query_sm_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\replace_sm.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\replace_sm_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\submit_multi.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\submit_multi_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\submit_sm.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\submit_sm_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\unbind.cpp" />
+    <ClCompile Include="..\..\..\public\smppparser\unbind_resp.cpp" />
+    <ClCompile Include="..\..\..\public\smpp_datacoding_convert\smpp_datacoding_toolkit.cpp" />
+    <ClCompile Include="..\..\..\public\sqlite\sqlite3.c" />
+    <ClCompile Include="..\..\..\public\sqlite\sqlite3pp.cpp" />
+    <ClCompile Include="..\..\..\public\sqlite\sqlite3ppext.cpp" />
+    <ClCompile Include="..\data_generator.cpp" />
+    <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\simple_webserver.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\public\algorithm_toolkit\algorithm.hpp" />
+    <ClInclude Include="..\..\..\public\algorithm_toolkit\base64.h" />
+    <ClInclude Include="..\..\..\public\algorithm_toolkit\csv_generator.hpp" />
+    <ClInclude Include="..\..\..\public\algorithm_toolkit\md5.h" />
+    <ClInclude Include="..\..\..\public\algorithm_toolkit\parse_argv.hpp" />
+    <ClInclude Include="..\..\..\public\avhttp\avhttp.hpp" />
+    <ClInclude Include="..\..\..\public\avhttp\avhttp_client.h" />
+    <ClInclude Include="..\..\..\public\avhttp\avhttp_client_tools.h" />
+    <ClInclude Include="..\..\..\public\client_common\cb_client_api.h" />
+    <ClInclude Include="..\..\..\public\client_common\client.h" />
+    <ClInclude Include="..\..\..\public\client_common\clients_manager.h" />
+    <ClInclude Include="..\..\..\public\client_common\clients_statistic.hpp" />
+    <ClInclude Include="..\..\..\public\client_common\client_data_source_manager.hpp" />
+    <ClInclude Include="..\..\..\public\client_common\json_parser.h" />
+    <ClInclude Include="..\..\..\public\client_common\short_message_db.h" />
+    <ClInclude Include="..\..\..\public\configer\configer.hpp" />
+    <ClInclude Include="..\..\..\public\database\db_strings.hpp" />
+    <ClInclude Include="..\..\..\public\database\records_db.hpp" />
+    <ClInclude Include="..\..\..\public\database\smis_db.hpp" />
+    <ClInclude Include="..\..\..\public\logger\logger.hpp" />
+    <ClInclude Include="..\..\..\public\memory_buffer\memory_buffer.hpp" />
+    <ClInclude Include="..\..\..\public\mongoose\mongoose.h" />
+    <ClInclude Include="..\..\..\public\network\abstract_protocol.hpp" />
+    <ClInclude Include="..\..\..\public\network\connection.hpp" />
+    <ClInclude Include="..\..\..\public\network\protocol_data_source_manager.hpp" />
+    <ClInclude Include="..\..\..\public\protocol\data_structure.h" />
+    <ClInclude Include="..\..\..\public\protocol\protocol_structure.h" />
+    <ClInclude Include="..\..\..\public\protocol_public\cb_protocol_public.hpp" />
+    <ClInclude Include="..\..\..\public\protocol_public\cb_public_functions.hpp" />
+    <ClInclude Include="..\..\..\public\protocol_public\cb_sm_status_code.hpp" />
+    <ClInclude Include="..\..\..\public\protocol_public\cb_sync_tcp_client.hpp" />
+    <ClInclude Include="..\..\..\public\protocol_public\data_encoding_tools.hpp" />
+    <ClInclude Include="..\..\..\public\protocol_public\sync_tcp_client.hpp" />
+    <ClInclude Include="..\..\..\public\smppclient\smppclient.h" />
+    <ClInclude Include="..\..\..\public\smppparser\alert_notification.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\aux_types.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\bind_receiver.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\bind_receiver_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\bind_transceiver.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\bind_transceiver_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\bind_transmitter.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\bind_transmitter_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\broadcast_sm.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\broadcast_sm_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\buffer.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\cancel_broadcast_sm.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\cancel_broadcast_sm_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\cancel_sm.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\cancel_sm_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\command_id.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\command_length.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\command_status.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\data_sm.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\data_sm_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\deliver_sm.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\deliver_sm_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\enquire_link.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\enquire_link_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\error.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\generic_nack.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\header.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\outbind.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\query_broadcast_sm.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\query_broadcast_sm_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\query_sm.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\query_sm_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\replace_sm.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\replace_sm_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\sequence_number.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\smpp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\submit_multi.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\submit_multi_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\submit_sm.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\submit_sm_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\tlv.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\unbind.hpp" />
+    <ClInclude Include="..\..\..\public\smppparser\unbind_resp.hpp" />
+    <ClInclude Include="..\..\..\public\smpp_datacoding_convert\smpp_datacoding_toolkit.h" />
+    <ClInclude Include="..\..\..\public\sqlite\sqlite3.h" />
+    <ClInclude Include="..\..\..\public\sqlite\sqlite3ext.h" />
+    <ClInclude Include="..\..\..\public\sqlite\sqlite3pp.hpp" />
+    <ClInclude Include="..\..\..\public\sqlite\sqlite3ppext.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+
+<body>
+
+
+短信内容:<br>
+ <textarea style="overflow-x:hidden;min-height:120px;min-width:360px;max-height:750px;max-width:370px;" id = "sms_content"></textarea> 
+<br>
+<br>
+
+
+目的号码:<br>
+<textarea style="overflow-x:hidden;min-height:320px;min-width:360px;max-height:750px;max-width:370px;" id = "sms_dst_addrs"></textarea> 
+
+<br>
+<br>
+<button id = "submit_button" onclick="onSubmitSMSs()">提交</button>
+<button id = "query_balance_button" onclick="onQueryBalance()">查询余额</button>
+
+
+<script>
+
+function is11Digits(number) {
+    var reg = /^[0-9]{13}$/;   /*定义验证表达式*/
+    return reg.test(number);     /*进行验证*/
+}
+
+var display_sending_tiemr_id ;
+
+function displaySending() {
+    document.write("正在发送中。。。。<br>");
+    display_sending_tiemr_id = setTimeout("displaySending()", 3000)
+}
+
+function submitSMSs(destinationsSource, contentSource) {
+    var content = encodeURI(contentSource);
+    var destinations = encodeURI(destinationsSource);
+    var url = "./get_submit?dst_addrs=" + destinations + "&content=" + content;
+
+   //alert(url);
+
+    var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+
+        httpRequest.open('POST', url, true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+        httpRequest.setRequestHeader('Content-type','application/x-www-form-urlencoded;charset=UTF-8');
+        httpRequest.timeout = 0; // 永不超时
+        
+        /**
+         * 获取数据后的处理程序
+         */
+        var responses = "";
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                responses = httpRequest.responseText;//获取到json字符串，还需解析
+                document.write("state:" + httpRequest.readyState + ", status:" + httpRequest.status + "<br>");
+                document.write("结果:" + "<br>" + responses);
+            }
+            else {
+                document.write("state:" + httpRequest.readyState + ", status:" + httpRequest.status + "<br>");
+            }
+            clearTimeout(display_sending_tiemr_id);
+        };
+        httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+        displaySending();
+}
+function onSubmitSMSs() {
+    var sms_content = document.getElementById("sms_content").value;
+    var sms_dst_addrs = document.getElementById("sms_dst_addrs").value;
+
+    document.getElementById("submit_button").setAttribute('disabled', 'disabled');
+    document.getElementById("query_balance_button").setAttribute('disabled', 'disabled');
+
+    var valid = true;
+    var dst_addr_array = sms_dst_addrs.split(";");
+    
+    if(sms_content.length == 0) {
+        document.write("请输入短信内容");
+        valid = false;
+    }
+
+    if(valid) {
+        if(dst_addr_array.length > 5000) {
+            document.write("一次提交不要超过5000个号码");
+            valid = false;
+        }
+    }
+
+    if(valid) {
+            for (i = 0; i < dst_addr_array.length; i++) { 
+            if((dst_addr_array[i].length > 0) && !is11Digits(dst_addr_array[i])) {
+                document.write("不合法的号码:" + dst_addr_array[i]);
+                valid = false;
+                break;
+            }
+        }
+    }
+
+    if(valid) {
+        var tip = "一共" + dst_addr_array.length + "个号码<br>正在发送中。。。。<br>";
+        document.write(tip);
+
+        submitSMSs(sms_dst_addrs, sms_content);
+    }
+}
+
+ function onQueryBalance() {
+    var url = "./get_balance";
+    document.getElementById("submit_button").setAttribute('disabled', 'disabled');
+    document.getElementById("query_balance_button").setAttribute('disabled', 'disabled');
+    var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+
+        httpRequest.open('GET', url, true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+        httpRequest.setRequestHeader('Content-type','application/x-www-form-urlencoded;charset=UTF-8');
+        httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+        /**
+         * 获取数据后的处理程序
+         */
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                var html = httpRequest.responseText;//获取到json字符串，还需解析
+                document.write(html);
+            }
+        };
+
+}
+</script>
+
+
+</body>
+</html>
